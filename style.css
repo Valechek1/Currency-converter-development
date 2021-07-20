@@ -48,9 +48,9 @@ header {
   letter-spacing: 0.06em;
 }
 
-.nav-text-bank {
+/* .nav-text-bank {
   color: #000000;
-}
+} */
 
 .nav-text-bisnes {
   padding-left: 22px;
@@ -74,6 +74,10 @@ header {
 
 .nav-text-entertainment {
   padding-left: 19px;
+}
+
+.nav-text-bank:hover, .nav-text-bisnes:hover, .nav-text-invest:hover, .nav-text-insurance:hover, .nav-text-mobail:hover, .nav-text-journey:hover, .nav-text-entertainment:hover {
+  color: #000000;
 }
 
 .button {
