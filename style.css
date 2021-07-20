@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.conteiner {
+  height: 100%;
+}
+
+.header-box {
+  height: 100%;
+  background-color: #F5F5F6;
+  margin-bottom: 56px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 953px;
+  margin: auto;
+}
+
+.logo-algoritmica {
+  width: 89px;
+  height: 23px;
+  padding-top: 7px;
+}
+
+.navigation {
+  width: 100%;
+  padding-left: 64px;
+  padding-right: 128px;
+}
+
+.nav-text-bank, .nav-text-bisnes, .nav-text-invest, .nav-text-insurance, .nav-text-mobail, .nav-text-journey, .nav-text-entertainment {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  text-decoration: none;
+  color: #959BA4;
+  line-height: 13px;
+  letter-spacing: 0.06em;
+}
+
+.nav-text-bank {
+  color: #000000;
+}
+
+.nav-text-bisnes {
+  padding-left: 22px;
+}
+
+.nav-text-invest {
+  padding-left: 20px;
+}
+
+.nav-text-insurance {
+  padding-left: 21px;
+}
+
+.nav-text-mobail {
+  padding-left: 21px;
+}
+
+.nav-text-journey {
+  padding-left: 20px;
+}
+
+.nav-text-entertainment {
+  padding-left: 19px;
+}
+
+.button {
+  width: 58px;
+  height: 33px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  padding: 0 5px 0 0;
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 646px;
+  margin: auto;
+}
+
+.main-header {
+  margin-bottom: 18px;
+}
+
+.main-header-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  margin: 0;
+}
+
+.converter-description {
+  color: #9F9F9F;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.box-converter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.download {
+  display: none;
+  width: 129px;
+  height: 54px;
+  text-align: center;
+}
+
+.download-text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  color: #000000;
+  margin: 0;
+}
+
+.box-button {
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 259px;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.btn-money {
+  color: #C6C6C6;
+  width: 50px;
+  height: 28px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0;
+  border: 1px solid #E5E5E5;
+  float: left;
+}
+
+.btn-money-sel {
+  color: #C6C6C6;
+  width: 57px;
+  height: 28px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0;
+  border: 1px solid #E5E5E5;
+  float: left;
+}
+
+.input-value {
+  width: 259px;
+  height: 102px;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+.input-about {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #000000;
+  width: 93%;
+  height: 56%;
+  border: none;
+  outline: none;
+  padding-left: 14px;
+  padding-top: 3px;
+}
+
+.text-about-converter {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #C6C6C6;
+  margin-top: 16px;
+  margin-bottom: 0px;
+  padding-left: 15px;
+}
+
+.arroy-img {
+  padding-top: 118px;
+  padding-right: 4px;
+}
+
+.right-box {
+  position: relative;
+  left: -5px;
+}

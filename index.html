@@ -12,58 +12,65 @@
 
 <body>
   <div class="conteiner">
-    <header>
-      <div class="conteiner-img">
-        <img src="img/logo.svg" alt="Лого Алгоритмики">
-      </div>
-      <div class="conteiner-list">
+    <div class="header-box">
+      <header>
+        <div class="conteiner-img">
+          <img class="logo-algoritmica" src="img/logo.svg" alt="Лого Алгоритмики">
+        </div>
         <nav class="navigation">
-          <a href="#">БАНК</a>
-          <a href="#">БИЗНЕС</a>
-          <a href="#">ИНВЕСТИЦИИ</a>
-          <a href="#">СТРАХОВАНИЕ</a>
-          <a href="#">МОБАЙЛ</a>
-          <a href="#">ПУТЕШЕСТВИЯ</a>
-          <a href="#">РАЗВЛЕЧЕНИЯ</a>
+          <a class="nav-text-bank" href="#">БАНК</a>
+          <a class="nav-text-bisnes" href="#">БИЗНЕС</a>
+          <a class="nav-text-invest" href="#">ИНВЕСТИЦИИ</a>
+          <a class="nav-text-insurance" href="#">СТРАХОВАНИЕ</a>
+          <a class="nav-text-mobail" href="#">МОБАЙЛ</a>
+          <a class="nav-text-journey" href="#">ПУТЕШЕСТВИЯ</a>
+          <a class="nav-text-entertainment" href="#">РАЗВЛЕЧЕНИЯ</a>
         </nav>
-      </div>
-      <div class="conteiner-button">
-        <button class="button">Войти</button>
-      </div>
-    </header>
+        <div class="conteiner-button">
+          <button class="button">ВОЙТИ</button>
+        </div>
+      </header>
+    </div>
     <main>
       <div class="main-header">
-        <h1 class="main-header-text">Ковертер валют онлайн</h1>
+        <h1 class="main-header-text">Конвертер валют онлайн</h1>
       </div>
       <div class="box-converter">
         <div class="left-box">
-          <p>У меня есть</p>
-          <div class="left-box-button">
+          <p class="converter-description">У меня есть</p>
+          <div class="box-button">
             <button class="btn-money">RUB</button>
             <button class="btn-money">USD</button>
             <button class="btn-money">EUR</button>
             <button class="btn-money">GBP</button>
-            <select name="left" id="select-left"></select>
+            <select class="btn-money-sel" name="left" id="select-left">
+              <option value="select-option"></option>
+            </select>
           </div>
-          <div class="left-input-value">
-            <input type="number" required>
+          <div class="input-value">
+            <input class="input-about" type="number" required>
             <p class="text-about-converter"></p>
           </div>
         </div>
         <div class="mid-box">
-          <img src="img/Arroy.svg" alt="Реверс стрелки">
+          <img class="arroy-img" src="img/Arroy.svg" alt="Реверс стрелки">
+        </div>
+        <div class="download">
+          <p class="download-text">Loading</p>
         </div>
         <div class="right-box">
-          <p>У меня есть</p>
-          <div class="right-box-button">
+          <p class="converter-description">Хочу приобрести</p>
+          <div class="box-button">
             <button class="btn-money">RUB</button>
             <button class="btn-money">USD</button>
             <button class="btn-money">EUR</button>
             <button class="btn-money">GBP</button>
-            <select name="right" id="select-right"></select>
+            <select class="btn-money-sel" name="right" id="select-right">
+              <option value="select-option"></option>
+            </select>
           </div>
-          <div class="rigth-input-value">
-            <input type="number" required>
+          <div class="input-value">
+            <input class="input-about" type="number" required>
             <p class="text-about-converter"></p>
           </div>
         </div>
