@@ -48,10 +48,6 @@ header {
   letter-spacing: 0.06em;
 }
 
-/* .nav-text-bank {
-  color: #000000;
-} */
-
 .nav-text-bisnes {
   padding-left: 22px;
 }
@@ -92,7 +88,6 @@ header {
   outline: none;
   padding: 0 5px 0 0;
 }
-
 
 main {
   display: flex;
@@ -154,7 +149,7 @@ main {
   margin-bottom: 20px;
 }
 
-.btn-money {
+.btn-right-money, .btn-left-money {
   color: #C6C6C6;
   width: 50px;
   height: 28px;
@@ -167,7 +162,7 @@ main {
   float: left;
 }
 
-.btn-money-sel {
+.select-left-money, .select-right-money {
   color: #C6C6C6;
   width: 57px;
   height: 28px;
@@ -178,6 +173,7 @@ main {
   padding: 0;
   border: 1px solid #E5E5E5;
   float: left;
+  bag
 }
 
 .input-value {
