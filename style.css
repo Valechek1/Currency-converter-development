@@ -122,22 +122,20 @@ main {
   justify-content: space-between;
 }
 
-.download {
-  display: none;
-  width: 129px;
-  height: 54px;
-  text-align: center;
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.download-text {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  border-radius: 3px;
-  background-color: #FFFFFF;
-  color: #000000;
-  margin: 0;
+.hidden {
+  display: none;
 }
 
 .box-button {
@@ -160,6 +158,7 @@ main {
   padding: 0;
   border: 1px solid #E5E5E5;
   float: left;
+  background-color: white;
 }
 
 .select-left-money, .select-right-money {
@@ -198,7 +197,7 @@ main {
   padding-top: 3px;
 }
 
-.text-about-converter {
+.text-about-converter-left, .text-about-converter-right {
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -217,4 +216,9 @@ main {
 .right-box {
   position: relative;
   left: -5px;
+}
+
+.activ {
+  background-color: #833AE0;
+  color: white;
 }

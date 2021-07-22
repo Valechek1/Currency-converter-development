@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="index.js"></script>
   <title>Currency-converter-development</title>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -48,14 +49,11 @@
           </div>
           <div class="input-value">
             <input id="input-left" class="input-about" type="number" value="1" required>
-            <p class="text-about-converter"></p>
+            <p class="text-about-converter-left"></p>
           </div>
         </div>
         <div class="mid-box">
           <img class="arroy-img" id="arrow-img" src="img/Arroy.svg" alt="Реверс стрелки">
-        </div>
-        <div class="download">
-          <p class="download-text">Loading</p>
         </div>
         <div class="right-box">
           <p class="converter-description">Хочу приобрести</p>
@@ -69,11 +67,15 @@
           </div>
           <div class="input-value">
             <input id="input-right" class="input-about" type="number" required>
-            <p class="text-about-converter"></p>
+            <p class="text-about-converter-right"></p>
           </div>
         </div>
       </div>
     </main>
+  </div>
+  <div class="overlay hidden">
+    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_jny63J.json" background="transparent" speed="1"
+      style="width: 500px; height: 500px;" loop autoplay></lottie-player>
   </div>
 </body>
 

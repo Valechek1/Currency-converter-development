@@ -9,6 +9,16 @@ const imgReverseArrow = document.querySelector('#arrow-img');
 const selects = document.querySelectorAll('#select-value');
 let btnValueLeft = 'RUB';
 let btnValueRight = 'USD';
+let loaderTimer = null;
+
+const ratese = [];
+const ratesReverse = [];
+
+const inputLeft = document.querySelector('#input-left');
+const inputRight = document.querySelector('#input-right');
+
+const paragrafLeft = document.querySelector('.text-about-converter-left');
+const paragrafRight = document.querySelector('.text-about-converter-right');
 
 const getSupportedSymbols = async () => {
   const response = await fetch('https://api.exchangerate.host/symbols');
@@ -28,28 +38,8 @@ const getCurrencyPair = async (currencyOne, currencyTwo) => {
   return [rate, rateReverse];
 };
 
-// getCurrencyPairRevers('RUB', 'USD');
-// getCurrencyPair('RUB', 'EUR');
-// getCurrencyPair('RUB', 'GBP');
-
-getSupportedSymbols()
-  .then((symbols) => {
-    selects.forEach((select) => {
-      const filterSymbols = symbols.filter((el) => el !== 'RUB' && el !== 'USD' && el !== 'EUR' && el !== 'GBP');
-      for (let i = 0; i < filterSymbols.length; i += 1) {
-        const optionCreate = document.createElement('option');
-        optionCreate.innerText = filterSymbols[i];
-        optionCreate.value = filterSymbols[i];
-
-        select.append(optionCreate);
-      }
-    });
-  });
-
 buttonsLeft.forEach((btn) => {
   btn.addEventListener('click', () => {
-    btn.style.backgroundColor = '#833AE0';
-    btn.style.color = '#FFFFFF';
     btnValueLeft = btn.innerText;
     algoritmMeaningRightInput();
   });
@@ -57,8 +47,6 @@ buttonsLeft.forEach((btn) => {
 
 buttonsRight.forEach((btn) => {
   btn.addEventListener('click', () => {
-    btn.style.backgroundColor = '#833AE0';
-    btn.style.color = '#FFFFFF';
     btnValueRight = btn.innerText;
     algoritmMeaningRightInput();
   });
@@ -81,23 +69,95 @@ imgReverseArrow.addEventListener('click', () => {
   algoritmMeaningRightInput();
 });
 
+inputLeft.addEventListener('keyup', () => {
+  performCalculations();
+});
+
+const performCalculations = () => {
+  const resultInputValue = inputLeft.value;
+  inputRight.value = ratese[0] * resultInputValue;
+};
+
+inputRight.addEventListener('keyup', () => {
+  performCalculationsRight();
+});
+
+const performCalculationsRight = () => {
+  const resultInputValueRight = inputRight.value;
+  inputLeft.value = ratesReverse[1] * resultInputValueRight;
+};
+
+const showLoader = () => {
+  loaderTimer = setTimeout(() => {
+    document.querySelector('.overlay').classList.remove('hidden');
+    loaderTimer = null;
+  }, 500);
+};
+
+const hideLoader = () => {
+  if (loaderTimer !== null) {
+    clearTimeout(loaderTimer);
+    loaderTimer = null;
+  }
+  document.querySelector('.overlay').classList.add('hidden');
+};
+
 function algoritmMeaningRightInput() {
-  // const leftActiveButton = document.querySelector(`#btn-left-${btnValueLeft}`);
-  // const rightActiveButton = document.querySelector(`#btn-right-${btnValueRight}`);
+  const leftActiveButton = document.querySelector(`#btn-left-${btnValueLeft}`);
+  const rightActiveButton = document.querySelector(`#btn-right-${btnValueRight}`);
 
-  // leftActiveButton.style.backgroundColor = '#833AE0';
-  // leftActiveButton.style.color = '#FFFFFF';
+  const deliteLeftActivClass = document.querySelector('.left-box .activ');
+  if (deliteLeftActivClass) {
+    deliteLeftActivClass.classList.remove('activ');
+  }
 
-  // rightActiveButton.style.backgroundColor = '#833AE0';
-  // rightActiveButton.style.color = '#FFFFFF';
+  if (leftActiveButton) {
+    leftActiveButton.classList.add('activ');
+  } else {
+    selectLeft.classList.add('activ');
+  }
 
+  const deliteRightActivClass = document.querySelector('.right-box .activ');
+  if (deliteRightActivClass) {
+    deliteRightActivClass.classList.remove('activ');
+  }
+
+  if (rightActiveButton) {
+    rightActiveButton.classList.add('activ');
+  } else {
+    selectRight.classList.add('activ');
+  }
+  showLoader();
   getCurrencyPair(btnValueLeft, btnValueRight)
     .then((rates) => {
-      console.log(rates);
-      const inputLeft = document.querySelector('#input-left');
-      const inputRight = document.querySelector('#input-right');
+      ratese.push(rates[0], rates[1]);
+      ratesReverse.push(rates[1], rates[0]);
+
       inputRight.value = rates[0] * inputLeft.value;
+      
+      paragrafLeft.innerText = `1 ${btnValueLeft} = ${rates[0]} ${btnValueRight}`;
+
+      paragrafRight.innerText = `1 ${btnValueRight} = ${rates[1]} ${btnValueLeft}`;
+
+      hideLoader();
     });
 }
 
-algoritmMeaningRightInput();
+const startApp = () => {
+  getSupportedSymbols()
+    .then((symbols) => {
+      selects.forEach((select) => {
+        const filterSymbols = symbols.filter((el) => el !== 'RUB' && el !== 'USD' && el !== 'EUR' && el !== 'GBP');
+        for (let i = 0; i < filterSymbols.length; i += 1) {
+          const optionCreate = document.createElement('option');
+          optionCreate.innerText = filterSymbols[i];
+          optionCreate.value = filterSymbols[i];
+          select.append(optionCreate);
+        }
+      });
+    });
+
+  algoritmMeaningRightInput();
+};
+
+startApp();
