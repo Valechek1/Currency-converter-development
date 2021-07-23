@@ -7,6 +7,7 @@ const selectRight = document.querySelector('.select-right-money');
 const imgReverseArrow = document.querySelector('#arrow-img');
 
 const selects = document.querySelectorAll('#select-value');
+
 let btnValueLeft = 'RUB';
 let btnValueRight = 'USD';
 let loaderTimer = null;
@@ -30,11 +31,9 @@ const getCurrencyPair = async (currencyOne, currencyTwo) => {
   const response = await fetch(`https://api.exchangerate.host/latest?base=${currencyOne}&symbols=${currencyTwo}`);
   const data = await response.json();
   const rate = data.rates[currencyTwo];
-
   const responseRewerse = await fetch(`https://api.exchangerate.host/latest?base=${currencyTwo}&symbols=${currencyOne}`);
   const dataRewerse = await responseRewerse.json();
   const rateReverse = dataRewerse.rates[currencyOne];
-
   return [rate, rateReverse];
 };
 
@@ -105,8 +104,8 @@ const hideLoader = () => {
 function algoritmMeaningRightInput() {
   const leftActiveButton = document.querySelector(`#btn-left-${btnValueLeft}`);
   const rightActiveButton = document.querySelector(`#btn-right-${btnValueRight}`);
-
   const deliteLeftActivClass = document.querySelector('.left-box .activ');
+
   if (deliteLeftActivClass) {
     deliteLeftActivClass.classList.remove('activ');
   }
@@ -127,14 +126,16 @@ function algoritmMeaningRightInput() {
   } else {
     selectRight.classList.add('activ');
   }
+
   showLoader();
   getCurrencyPair(btnValueLeft, btnValueRight)
     .then((rates) => {
       ratese.push(rates[0], rates[1]);
+
       ratesReverse.push(rates[1], rates[0]);
 
       inputRight.value = rates[0] * inputLeft.value;
-      
+
       paragrafLeft.innerText = `1 ${btnValueLeft} = ${rates[0]} ${btnValueRight}`;
 
       paragrafRight.innerText = `1 ${btnValueRight} = ${rates[1]} ${btnValueLeft}`;
@@ -156,7 +157,6 @@ const startApp = () => {
         }
       });
     });
-
   algoritmMeaningRightInput();
 };
 
