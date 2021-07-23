@@ -21,71 +21,6 @@ const inputRight = document.querySelector('#input-right');
 const paragrafLeft = document.querySelector('.text-about-converter-left');
 const paragrafRight = document.querySelector('.text-about-converter-right');
 
-const getSupportedSymbols = async () => {
-  const response = await fetch('https://api.exchangerate.host/symbols');
-  const data = await response.json();
-  return Object.keys(data.symbols);
-};
-
-const getCurrencyPair = async (currencyOne, currencyTwo) => {
-  const response = await fetch(`https://api.exchangerate.host/latest?base=${currencyOne}&symbols=${currencyTwo}`);
-  const data = await response.json();
-  const rate = data.rates[currencyTwo];
-  const responseRewerse = await fetch(`https://api.exchangerate.host/latest?base=${currencyTwo}&symbols=${currencyOne}`);
-  const dataRewerse = await responseRewerse.json();
-  const rateReverse = dataRewerse.rates[currencyOne];
-  return [rate, rateReverse];
-};
-
-buttonsLeft.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    btnValueLeft = btn.innerText;
-    algoritmMeaningRightInput();
-  });
-});
-
-buttonsRight.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    btnValueRight = btn.innerText;
-    algoritmMeaningRightInput();
-  });
-});
-
-selectLeft.addEventListener('change', (event) => {
-  btnValueLeft = event.target.value;
-  algoritmMeaningRightInput();
-});
-
-selectRight.addEventListener('change', (event) => {
-  btnValueRight = event.target.value;
-  algoritmMeaningRightInput();
-});
-
-imgReverseArrow.addEventListener('click', () => {
-  const resultLeft = btnValueLeft;
-  btnValueLeft = btnValueRight;
-  btnValueRight = resultLeft;
-  algoritmMeaningRightInput();
-});
-
-inputLeft.addEventListener('keyup', () => {
-  performCalculations();
-});
-
-const performCalculations = () => {
-  const resultInputValue = inputLeft.value;
-  inputRight.value = ratese[0] * resultInputValue;
-};
-
-inputRight.addEventListener('keyup', () => {
-  performCalculationsRight();
-});
-
-const performCalculationsRight = () => {
-  const resultInputValueRight = inputRight.value;
-  inputLeft.value = ratesReverse[1] * resultInputValueRight;
-};
-
 const showLoader = () => {
   loaderTimer = setTimeout(() => {
     document.querySelector('.overlay').classList.remove('hidden');
@@ -99,6 +34,16 @@ const hideLoader = () => {
     loaderTimer = null;
   }
   document.querySelector('.overlay').classList.add('hidden');
+};
+
+const getCurrencyPair = async (currencyOne, currencyTwo) => {
+  const response = await fetch(`https://api.exchangerate.host/latest?base=${currencyOne}&symbols=${currencyTwo}`);
+  const data = await response.json();
+  const rate = data.rates[currencyTwo];
+  const responseRewerse = await fetch(`https://api.exchangerate.host/latest?base=${currencyTwo}&symbols=${currencyOne}`);
+  const dataRewerse = await responseRewerse.json();
+  const rateReverse = dataRewerse.rates[currencyOne];
+  return [rate, rateReverse];
 };
 
 function algoritmMeaningRightInput() {
@@ -141,11 +86,66 @@ function algoritmMeaningRightInput() {
       paragrafRight.innerText = `1 ${btnValueRight} = ${rates[1]} ${btnValueLeft}`;
 
       hideLoader();
-    })
-    .catch((error) => {
-      alert(error);
     });
+  // .catch((error) => {
+  //   alert(error);
+  // });
 }
+
+const getSupportedSymbols = async () => {
+  const response = await fetch('https://api.exchangerate.host/symbols');
+  const data = await response.json();
+  return Object.keys(data.symbols);
+};
+
+buttonsLeft.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btnValueLeft = btn.innerText;
+    algoritmMeaningRightInput();
+  });
+});
+
+buttonsRight.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btnValueRight = btn.innerText;
+    algoritmMeaningRightInput();
+  });
+});
+
+selectLeft.addEventListener('change', (event) => {
+  btnValueLeft = event.target.value;
+  algoritmMeaningRightInput();
+});
+
+selectRight.addEventListener('change', (event) => {
+  btnValueRight = event.target.value;
+  algoritmMeaningRightInput();
+});
+
+imgReverseArrow.addEventListener('click', () => {
+  const resultLeft = btnValueLeft;
+  btnValueLeft = btnValueRight;
+  btnValueRight = resultLeft;
+  algoritmMeaningRightInput();
+});
+
+const performCalculations = () => {
+  const resultInputValue = inputLeft.value;
+  inputRight.value = ratese[0] * resultInputValue;
+};
+
+const performCalculationsRight = () => {
+  const resultInputValueRight = inputRight.value;
+  inputLeft.value = ratesReverse[1] * resultInputValueRight;
+};
+
+inputLeft.addEventListener('keyup', () => {
+  performCalculations();
+});
+
+inputRight.addEventListener('keyup', () => {
+  performCalculationsRight();
+});
 
 const startApp = () => {
   getSupportedSymbols()
@@ -159,10 +159,10 @@ const startApp = () => {
           select.append(optionCreate);
         }
       });
-    })
-    .catch((error) => {
-      alert(error);
     });
+  // .catch((error) => {
+  //   alert(error);
+  // });
   algoritmMeaningRightInput();
 };
 
