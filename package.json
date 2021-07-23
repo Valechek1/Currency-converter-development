@@ -2,7 +2,7 @@
   "name": "currency-converter-development",
   "version": "1.0.0",
   "description": "Currency converter is a convenient service for calculating a cross rate that allows you to quickly and conveniently carry out various currency transfers from one currency to another.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "lint": "eslint *.js",
     "test": "echo \"Error: no test specified\" && exit 1"
