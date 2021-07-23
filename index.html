@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <title>Currency-converter-development</title>
+</head>
+
+<body>
+  <div class="conteiner">
+    <div class="header-box">
+      <header>
+        <div class="conteiner-img">
+          <img class="logo-algoritmica" src="img/logo.svg" alt="Лого Алгоритмики">
+        </div>
+        <nav class="navigation">
+          <a class="nav-text-bank" href="#">БАНК</a>
+          <a class="nav-text-bisnes" href="#">БИЗНЕС</a>
+          <a class="nav-text-invest" href="#">ИНВЕСТИЦИИ</a>
+          <a class="nav-text-insurance" href="#">СТРАХОВАНИЕ</a>
+          <a class="nav-text-mobail" href="#">МОБАЙЛ</a>
+          <a class="nav-text-journey" href="#">ПУТЕШЕСТВИЯ</a>
+          <a class="nav-text-entertainment" href="#">РАЗВЛЕЧЕНИЯ</a>
+        </nav>
+        <div class="conteiner-button">
+          <button class="button">ВОЙТИ</button>
+        </div>
+      </header>
+    </div>
+    <main>
+      <div class="main-header">
+        <h1 class="main-header-text">Конвертер валют онлайн</h1>
+      </div>
+      <div class="box-converter">
+        <div class="left-box">
+          <p class="converter-description">У меня есть</p>
+          <div class="box-button">
+            <button id="btn-left-RUB" class="btn-left-money">RUB</button>
+            <button id="btn-left-USD" class="btn-left-money">USD</button>
+            <button id="btn-left-EUR" class="btn-left-money">EUR</button>
+            <button id="btn-left-GBP" class="btn-left-money">GBP</button>
+            <select class="select-left-money" name="left" id="select-value">
+            </select>
+          </div>
+          <div class="input-value">
+            <input id="input-left" class="input-about" type="number" value="1" required>
+            <p class="text-about-converter-left"></p>
+          </div>
+        </div>
+        <div class="mid-box">
+          <img class="arroy-img" id="arrow-img" src="img/Arroy.svg" alt="Реверс стрелки">
+        </div>
+        <div class="right-box">
+          <p class="converter-description">Хочу приобрести</p>
+          <div class="box-button">
+            <button id="btn-right-RUB" class="btn-right-money">RUB</button>
+            <button id="btn-right-USD" class="btn-right-money">USD</button>
+            <button id="btn-right-EUR" class="btn-right-money">EUR</button>
+            <button id="btn-right-GBP" class="btn-right-money">GBP</button>
+            <select class="select-right-money" name="right" id="select-value">
+            </select>
+          </div>
+          <div class="input-value">
+            <input id="input-right" class="input-about" type="number" required>
+            <p class="text-about-converter-right"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="overlay hidden">
+    <lottie-player class="lotti-plaer" src="https://assets2.lottiefiles.com/packages/lf20_jny63J.json"
+      background="transparent" speed="1" loop autoplay></lottie-player>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
