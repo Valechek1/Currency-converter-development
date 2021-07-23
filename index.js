@@ -141,6 +141,9 @@ function algoritmMeaningRightInput() {
       paragrafRight.innerText = `1 ${btnValueRight} = ${rates[1]} ${btnValueLeft}`;
 
       hideLoader();
+    })
+    .catch((error) => {
+      alert(error);
     });
 }
 
@@ -156,6 +159,9 @@ const startApp = () => {
           select.append(optionCreate);
         }
       });
+    })
+    .catch((error) => {
+      alert(error);
     });
   algoritmMeaningRightInput();
 };
