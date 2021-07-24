@@ -46,7 +46,7 @@ const getCurrencyPair = async (currencyOne, currencyTwo) => {
   return [rate, rateReverse];
 };
 
-function algoritmMeaningRightInput() {
+function mathematicalFunctionCalculation() {
   const leftActiveButton = document.querySelector(`#btn-left-${btnValueLeft}`);
   const rightActiveButton = document.querySelector(`#btn-right-${btnValueRight}`);
   const deliteLeftActivClass = document.querySelector('.left-box .activ');
@@ -87,9 +87,6 @@ function algoritmMeaningRightInput() {
 
       hideLoader();
     });
-  // .catch((error) => {
-  //   alert(error);
-  // });
 }
 
 const getSupportedSymbols = async () => {
@@ -101,32 +98,32 @@ const getSupportedSymbols = async () => {
 buttonsLeft.forEach((btn) => {
   btn.addEventListener('click', () => {
     btnValueLeft = btn.innerText;
-    algoritmMeaningRightInput();
+    mathematicalFunctionCalculation();
   });
 });
 
 buttonsRight.forEach((btn) => {
   btn.addEventListener('click', () => {
     btnValueRight = btn.innerText;
-    algoritmMeaningRightInput();
+    mathematicalFunctionCalculation();
   });
 });
 
 selectLeft.addEventListener('change', (event) => {
   btnValueLeft = event.target.value;
-  algoritmMeaningRightInput();
+  mathematicalFunctionCalculation();
 });
 
 selectRight.addEventListener('change', (event) => {
   btnValueRight = event.target.value;
-  algoritmMeaningRightInput();
+  mathematicalFunctionCalculation();
 });
 
 imgReverseArrow.addEventListener('click', () => {
   const resultLeft = btnValueLeft;
   btnValueLeft = btnValueRight;
   btnValueRight = resultLeft;
-  algoritmMeaningRightInput();
+  mathematicalFunctionCalculation();
 });
 
 const performCalculations = () => {
@@ -160,10 +157,7 @@ const startApp = () => {
         }
       });
     });
-  // .catch((error) => {
-  //   alert(error);
-  // });
-  algoritmMeaningRightInput();
+  mathematicalFunctionCalculation();
 };
 
 startApp();
