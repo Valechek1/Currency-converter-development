@@ -26,7 +26,15 @@
     justify-content: space-around;
   }
 
+  .header-box {
+    margin-bottom: 16px;
+  }
+
   .arroy-img {
     padding-top: 24px;
+  }
+
+  .input-about {
+    width: 80%;
   }
 }
